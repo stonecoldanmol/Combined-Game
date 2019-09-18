@@ -29,6 +29,7 @@ eDirection dir;
 class A
 {
     public:
+    //variables used for settingup the game
 void setup()
 {
     gameover=false;
@@ -45,6 +46,7 @@ void setup()
 class B
 {
     public:
+    //actual prototype for the background 
   void draw()
 {
     system("CLS");
@@ -96,6 +98,7 @@ class B
 class C
 {
     public:
+    //input part for the movement of snake
     void input()
 {
     if(_kbhit())
@@ -124,6 +127,7 @@ class C
 class D
 {
     public:
+    //logic part for the increment, gameover and movement of snake 
 void logic()
 {
     int prevX = tailX[0];
@@ -186,6 +190,7 @@ switch(dir)
 class E
 {
     public:
+    //same setup as used in level 1
 void setup1()
 {
     gameover=false;
@@ -205,6 +210,7 @@ void setup1()
 class F
 {
     public:
+    //same prototype used for level 1
   void draw1()
 {
     system("CLS");
@@ -260,6 +266,7 @@ class F
 class G
 {
     public:
+    //same input as level 1
     void input1()
 {
     if(_kbhit())
@@ -288,7 +295,9 @@ class G
 class H
 {
     public:
-void logic1()
+/*same logic used for level 1
+    except when snake hits the wall gameover becomes true.*/
+    void logic1()
 {
     int prevX = tailX[0];
     int prevY = tailY[0];
@@ -357,6 +366,7 @@ switch(dir)
 class I
 {
     public:
+    //same setup as level 2
 void setup2()
 {
     gameover=false;
@@ -376,6 +386,9 @@ void setup2()
 class J
 {
     public:
+    /*same as level 2 plus whenever snake eats a fruit
+    a random box is created inside the constraints
+        of width and height*/
   void draw2()
 {
     system("CLS");
@@ -413,8 +426,6 @@ class J
                 }
 
 
-
-
                if(j==width-1)
                 cout<<"\xB2";
            }
@@ -431,6 +442,7 @@ class J
 class K
 {
     public:
+    //same input as in level 2
     void input2()
 {
     if(_kbhit())
@@ -459,6 +471,9 @@ class K
 class L
 {
     public:
+    /*same logic as in level 2 but when internal 
+    box is created and when snake hits the box 
+    the gameover becomes true*/
 void logic2()
 {
     int prevX = tailX[0];
@@ -528,12 +543,14 @@ switch(dir)
 class cBall
 {
 private:
+    //variables for directions of ball
     int x, y;
     int originalX, originalY;
     eDirection direction;
 public:
     cBall(int posX, int posY)
     {
+        //position of ball
         originalX = posX;
         originalY = posY;
         x = posX; y = posY;
@@ -541,15 +558,18 @@ public:
     }
     void Reset()
     {
+        //function used to rest the game
         x = originalX; y = originalY;
         direction = STOP;
     }
     void changeDirection(eDirection d)
     {
+        //function used to control direction
         direction = d;
     }
     void randomDirection()
     {
+        //random direction of ball
         direction = (eDirection)((rand() % 6) + 1);
     }
     inline int getX() { return x; }
@@ -557,6 +577,7 @@ public:
     inline eDirection getDirection() { return direction; }
     void Move()
     {
+        //movement of ball
         switch (direction)
         {
         case STOP:
@@ -591,6 +612,7 @@ public:
 };
 class cPaddle
 {
+    //variables used for paddles of player1 and player 2
 private:
     int x, y;
     int originalX, originalY;
@@ -619,6 +641,7 @@ public:
 };
 class cGameManger
 {
+    //game Manager,actual prototype for the background of the game 
 private:
     int width, height;
     int score1, score2;
@@ -657,6 +680,7 @@ public:
     }
     void Draw()
     {
+        //prototype of background
         system("CLS");
         for (int i = 0; i < width + 2; i++)
             cout << "\xB2";
@@ -713,6 +737,7 @@ public:
     }
     void Input()
     {
+        //input performance of the game
         ball->Move();
 
         int ballx = ball->getX();
@@ -747,6 +772,7 @@ public:
     }
     void Logic()
     {
+        //logic part of the game
         int ballx = ball->getX();
         int bally = ball->getY();
         int player1x = player1->getX();
@@ -781,6 +807,7 @@ public:
     }
     void Run()
     {
+        //call of all the functions
         while (!quit)
         {
             Draw();
@@ -789,11 +816,13 @@ public:
         }
     }
 };
+//TIC TAC TOE GAME
 class C1
 {
     public:
 void Draw()
 {
+    //prototype of the game
     system("CLS");
     cout << "Tic Tac Toe GAME:" << endl;
     for (int i = 0; i < 3; i++)
@@ -811,6 +840,7 @@ class C2
     public:
     void Input()
 {
+        //input by the user 
     int a;
     cout << "Press the number of the field: ";
     cin >> a;
