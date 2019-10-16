@@ -337,16 +337,7 @@ switch(dir)
                     gameover=true;*/
           }
 
-    if(x ==fruitX && y==fruitY)
-    {
-
-        score+=10;
-        fruitX=rand()%width;
-        fruitY=rand()%height;
-     //   wallX=rand()%width;
-       // wallY=rand()%height;
-        ntail++;
-    }
+   
 
 
 }
